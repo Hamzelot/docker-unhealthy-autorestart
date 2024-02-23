@@ -3,7 +3,6 @@ echo "Container started."
 
 # Load env variables
 blacklist=${BLACKLIST:-}
-notify_blacklist=${NOTIFY_BLACKLIST:-}
 
 # Check variables for presence and set default if not
 if [[ -z $blacklist ]]; then
@@ -12,13 +11,6 @@ else
   IFS=' ' read -r -a blacklist <<< "$blacklist"
   echo `date` "Blacklisted Containers:"
   printf '%s\n' "${blacklist[@]}"
-fi
-if [[ -z $notify_blacklist ]]; then
-  notify_blacklist=()
-else
-  IFS=' ' read -r -a notify_blacklist <<< "$notify_blacklist"
-  echo `date` "Blacklisted Notifications:"
-  printf '%s\n' "${notify_blacklist[@]}"
 fi
 
 while true; do

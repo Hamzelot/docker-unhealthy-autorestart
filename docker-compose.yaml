@@ -7,8 +7,6 @@ services:
       - POLL_INTERVAL=60
       # Optional: Blacklisted containers that will not be restarted
       - BLACKLIST=""
-      # Optional: Blacklisted containers that will be restarted, but without notification
-      - NOTIFY_BLACKLIST=""      
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:rw
       - /etc/localtime:/etc/localtime:ro
